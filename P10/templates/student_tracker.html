@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Student Tracker{% endblock %}
+{% block content %}
+
+<h1>Student Academic Tracker</h1>
+<p>Tambahkan data nilai siswa di bawah ini.</p>
+
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+    <label>Nama Siswa</label>
+    <input type="text" name="nama" required>
+    <br><br>
+
+    <label>Nilai</label>
+    <input type="number" name="nilai" min="0" max="100" required>
+    <br><br>
+
+    <button type="submit">Tambah Siswa</button>
+</form>
+
+<hr>
+
+<h2>Daftar Siswa</h2>
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Nilai</th>
+        <th>Status</th>
+    </tr>
+    {% for s in students %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ s.nama }}</td>
+        <td>{{ s.nilai }}</td>
+        <td>
+            {% if s.nilai >= 60 %}
+                Lulus
+            {% else %}
+                Gagal
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Rata-rata Nilai</h2>
+<p>{{ "%.2f"|format(avg) }}</p>
+
+{% endblock %}
