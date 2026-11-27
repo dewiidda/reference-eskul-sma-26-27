@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Home - Portofolio Dewi{% endblock %}
+{% block content %}
+
+<section class="hero-section">
+    <h1 class="hero-title">Halo, Selamat Datang! 👋</h1>
+    <p class="hero-subtitle">
+        Aku adalah pengembang web dan edukator yang antusias membangun aplikasi berbasis Python & Flask.
+    </p>
+
+    <div class="hero-img-container">
+        <img src="{{ url_for('static', filename='images/welcome.gif') }}" alt="Welcome Animation" class="hero-img">
+    </div>
+
+    <div class="cta-buttons">
+        <a href="{{ url_for('project') }}" class="btn-primary">Lihat Proyek</a>
+        <a href="{{ url_for('contact') }}" class="btn-secondary">Hubungi Saya</a>
+    </div>
+</section>
+
+<section class="quick-features">
+    <h2 class="section-title">Jelajahi Fitur & Aplikasi</h2>
+    <div class="feature-grid">
+        
+        <div class="card">
+            <h3>📊 Student Tracker</h3>
+            <p class="card-desc">Kelola dan hitung rata-rata nilai siswa secara dinamis.</p>
+            <a href="{{ url_for('student_tracker') }}" class="card-link">Buka &rarr;</a>
+        </div>
+
+        <div class="card">
+            <h3>💰 Finance Tracker</h3>
+            <p class="card-desc">Catat pemasukan dan pengeluaran keuangan harian.</p>
+            <a href="{{ url_for('finance') }}" class="card-link">Buka &rarr;</a>
+        </div>
+
+        <div class="card">
+            <h3>📝 Todo List</h3>
+            <p class="card-desc">Organisir tugas harian dengan fitur tambah, edit, dan hapus.</p>
+            <a href="{{ url_for('todo') }}" class="card-link">Buka &rarr;</a>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
